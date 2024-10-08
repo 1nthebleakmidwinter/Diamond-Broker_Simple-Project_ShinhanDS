@@ -1,0 +1,248 @@
+@charset "UTF-8";
+
+body {
+    background-color: black;
+    color: white;
+    
+    background-image: linear-gradient(rgba(0,0,0,0.928), rgba(0,0,0,0.928)), url("../image/pub.jpg");
+	background-size: cover;
+    background-position-x: 100px;
+    background-blend-mode: luminosity;
+}
+
+hr{
+    margin: 0;
+}
+
+#side{
+	display:inline-block;
+    border-right: 2px solid white;
+    width: 450px;
+    height: 929px;
+
+    text-align: center;
+    align-items: center;
+    
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("../image/cillian.jpg");
+	background-size: cover;
+    background-position-x: -30px;
+}
+
+#wel{
+    font-family: "Dancing Script";
+    font-size: 36px;
+}
+
+#top3{
+	display: inline-block;
+	position: absolute;
+    font-family: "Nanum Brush Script";
+    font-size: 40px;
+    
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+#profile{
+    width: 100px;
+    height: 100px;
+}
+
+input[name='user_id'], input[name='sel']{
+	display: none;
+}
+
+.menu{
+    font-family: "Nanum Brush Script";
+    font-size: 35px;
+    margin: 40px 0px;
+
+    cursor: pointer;
+    text-transform: capitalize;
+    
+    /* border: 1px solid #fff; */
+    border: none;
+    font-family: "Nanum Brush Script";
+    background-color: transparent;
+    color: white;
+    border-radius: 5%;
+
+    background-image: linear-gradient(0, #fff, #fff);
+    background-size: 0;
+    transition: .8s;
+    background-repeat: no-repeat;
+}
+.menu:hover{
+    background-size: 100%;
+    color: #000;
+}
+
+.field {
+    display:inline-block;
+    position: absolute;
+    border: 1px solid white;
+    border-radius: 10%;
+    border-left-style: hidden;
+    border-right-style: hidden;
+    font-family: "Nanum Myeongjo";
+    
+    width: 1450px;
+    height: 750px;
+    margin-top: 100px;
+    margin-left: 10px;
+}
+
+.page{
+	display: inline-block;
+	font-family: "Nanum Brush Script";
+	
+	position: absolute;
+	font-size: 30px;
+	
+	margin-top: 318px;
+	margin-left: 30px;
+}
+
+.card-dia{
+	display: inline-block;
+    width: 200px;
+    height: 300px;
+    perspective: 1000px;
+    
+    margin-top: 40px;   
+    margin-left: 120px;
+}
+
+.card-dia:hover .card{
+    transform: rotateY(-180deg);
+}
+
+#last .card {
+	transform: none;
+}
+
+#last .card .front{
+	background-color: red;
+}
+
+#last .card .front img{
+	margin-top: 0;
+}
+
+.card{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    color: white;
+    text-align: center;
+    transform-style: preserve-3d;
+    transform: rotateY(0deg);
+    transition: .5s;
+}
+
+.front, .back{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    
+    border: 8px double black;
+}
+
+.front{
+    background: white;
+    align-content: center;
+    color: black;
+}
+
+.front img{
+	margin-top: 75px;
+	width: 100px;
+	height: 100px;
+}
+
+.front p{
+	margin-top: 95px;
+	margin-left: 100px;
+	font-size: 20px;
+}
+
+.back{
+    background: black;
+    border: 5px double white;
+    transform: rotateY(180deg);
+    font-size: 15px;
+    
+    margin-top: 3px;
+    margin-left: -13px;
+}
+
+.back table{
+    border-collapse: collapse;
+    width: 100%;
+    height: 85%;
+}
+
+.back table tr td{
+	border: 1px solid white;
+}
+
+.back .card-btn{
+	display: inline-block;
+    margin: 0 0.1rem;
+    margin: 7px 15px;
+    
+    border: 1px solid #fff;
+    font-family: "Nanum Brush Script";
+    background-color: transparent;
+    color: white;
+    border-radius: 5%;
+    font-size: 25px;
+    
+    width: 60px;
+    height: 30px;
+    cursor: pointer;
+    text-transform: capitalize;
+    
+    background-image: linear-gradient(0, #fff, #fff);
+    background-size: 0;
+    transition: .8s;
+    background-repeat: no-repeat;
+}
+
+.back .card-btn:hover{
+	background-size: 100%;
+    color: #000;
+}
+
+.card-ani{
+	animation: flipInY;
+    animation-duration: .3s;
+}
+
+#previous{
+	position: absolute;
+	margin-top: 860px;
+	margin-left: 550px;
+	width: 50px;
+	height: 50px;
+	transition: .5s;
+	cursor: pointer;
+}
+#previous:hover{
+	transform: rotate(-360deg);
+}
+
+
+#next{
+	position: absolute;
+	margin-top: 860px;
+	margin-left: 850px;
+	width: 50px;
+	height: 50px;
+	transition: .5s;
+	cursor: pointer;
+}
+#next:hover{
+	transform: rotate(360deg);
+}

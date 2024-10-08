@@ -1,0 +1,590 @@
+body {
+    background-color: black;
+    color: white;
+    
+    background-image: linear-gradient(rgba(0,0,0,0.928), rgba(0,0,0,0.928)), url("../image/pub.jpg");
+	background-size: cover;
+    background-position-x: 100px;
+    background-blend-mode: luminosity;
+}
+
+hr{
+    margin: 0;
+}
+
+#side{
+	display:inline-block;
+    border-right: 2px solid white;
+    width: 450px;
+    height: 929px;
+
+    text-align: center;
+    align-items: center;
+    
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("../image/cillian.jpg");
+	background-size: cover;
+    background-position-x: -30px;
+}
+
+#wel{
+    font-family: "Dancing Script";
+    font-size: 36px;
+}
+
+#top3{
+	display: inline-block;
+	position: absolute;
+    font-family: "Nanum Brush Script";
+    font-size: 40px;
+    
+    margin-top: 70px;
+    margin-left: 550px;
+}
+
+#profile{
+    width: 100px;
+    height: 100px;
+}
+
+input[name='user_id'], input[name='sel'], input[name='cut'], input[name='color'], input[name='clarity']{
+	display: none;
+}
+
+.menu{
+    font-family: "Nanum Brush Script";
+    font-size: 35px;
+    margin: 40px 0px;
+
+    cursor: pointer;
+    text-transform: capitalize;
+    
+    /* border: 1px solid #fff; */
+    border: none;
+    font-family: "Nanum Brush Script";
+    background-color: transparent;
+    color: white;
+    border-radius: 5%;
+
+    background-image: linear-gradient(0, #fff, #fff);
+    background-size: 0;
+    transition: .8s;
+    background-repeat: no-repeat;
+}
+.menu:hover{
+    background-size: 100%;
+    color: #000;
+}
+
+.field {
+    display:inline-block;
+    position: absolute;
+    border: 1px solid white;
+    border-radius: 15px;
+    border-left-style: hidden;
+    font-family: "Nanum Myeongjo";
+    
+    width: 300px;
+    height: 700px;
+    margin-top: 120px;
+    margin-left: 550px;
+}
+
+#btn {
+    display: inline-block;
+    margin: 0 0.1rem;
+    margin-top: 40px;
+    margin-left: 120px;
+    
+    border: 1px solid #fff;
+    font-family: "Nanum Brush Script";
+    background-color: transparent;
+    color: white;
+    border-radius: 5%;
+    font-size: 25px;
+    
+    width: 80px;
+    height: 40px;
+    cursor: pointer;
+    text-transform: capitalize;
+    
+    background-image: linear-gradient(0, #fff, #fff);
+    background-size: 0;
+    transition: .8s;
+    background-repeat: no-repeat;
+}
+
+.btn_ani {
+    animation: fadeInLeft;
+    animation-duration: 2.5s;
+}
+
+#btn:hover {
+    background-size: 100%;
+    color: #000;
+}
+
+#inp1 {
+    display: inline-block;
+}
+
+.inp1_ani {
+    animation: fadeInLeft;
+    animation-duration: 1s;
+}
+
+#inp2 {
+    display: inline-block;
+}
+
+.inp2_ani {
+    animation: fadeInLeft;
+    animation-duration: 1.3s;
+}
+
+#inp3 {
+    display: inline-block;
+}
+
+.inp3_ani {
+    animation: fadeInLeft;
+    animation-duration: 1.6s;
+}
+
+#inp4 {
+    display: inline-block;
+}
+
+.inp4_ani {
+    animation: fadeInLeft;
+    animation-duration: 1.9s;
+}
+
+#inp5 {
+    display: inline-block;
+}
+
+.inp5_ani {
+    animation: fadeInLeft;
+    animation-duration: 2.2s;
+}
+
+.inp {
+    position: relative;
+    width: 30%;
+    height: 50px;
+    
+    margin-top: 20px;
+    margin-left: 110px;
+    
+    font-family: "Nanum Brush Script";
+    font-size: 30px;
+}
+
+.inp input {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border: 0 none;
+    color: #fff;
+    outline: none;
+
+    background-color: #000;
+    border-color: #fff;
+}
+
+.inp label {
+    position: absolute;
+    left: 0%;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    border-bottom: 1px solid #555;
+    text-align: left;
+    pointer-events: none;
+}
+
+.inp label::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 0;
+    height: 100%;
+    border-bottom: 3px solid #fff;
+    transition: all .3s ease;
+}
+
+.inp label span {
+    position: absolute;
+    left: 0;
+    bottom: 5px;
+    transition: all .3s ease;
+}
+
+.inp input:focus + label span, .inp input:valid + label span {
+    transform: translateX(-58px);
+    font-size: 20px;
+    color: #fff;
+}
+
+.inp input:focus + label::after, .inp input:valid + label::after {
+    width: 100%;
+    transform: translateX(0);
+}
+
+#inp7 input:focus + label span, #inp7 input:valid + label span {
+    transform: translateX(-20px);
+    font-size: 20px;
+    color: #fff;
+}
+
+#inp7 input:focus + label::after, #inp7 input:valid + label::after {
+    width: 100%;
+    transform: translateX(0);
+}
+
+#inp8 input:focus + label span, #inp8 input:valid + label span {
+    transform: translateX(-20px);
+    font-size: 20px;
+    color: #fff;
+}
+
+#inp8 input:focus + label::after, #inp8 input:valid + label::after {
+    width: 100%;
+    transform: translateX(0);
+}
+
+#inp9 input:focus + label span, #inp9 input:valid + label span {
+    transform: translateX(-20px);
+    font-size: 20px;
+    color: #fff;
+}
+
+#inp9 input:focus + label::after, #inp9 input:valid + label::after {
+    width: 100%;
+    transform: translateX(0);
+}
+
+.selectBox {
+  position: relative;
+  width: 150px;
+  height: 35px;
+  border-radius: 4px;
+  border: 2px double #fff;
+  margin-top: 10px;
+  margin-left: 70px;
+}
+.selectBox .select {
+  width: inherit;
+  height: inherit;
+  border: 0 none;
+  outline: 0 none;
+  padding: 0 5px;
+  position: relative;
+  z-index: 3;
+  
+  color: #fff;
+  background-color: #000
+}
+.selectBox .select option {
+  background: #000;
+  color: #fff;
+  padding: 3px 0;
+  font-size: 16px;
+}
+.selectBox .icoArrow {
+  position: absolute; 
+  top: 0; 
+  right: 0; 
+  z-index: 1; 
+  width: 35px; 
+  height: inherit;
+  border-left: 2px solid #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.selectBox .icoArrow img {
+  width: 50%;
+  transition: .3s;
+}
+
+.selectBox .select:focus + .icoArrow img {
+  transform: rotate(180deg);
+}
+
+#modal-wrap {
+	display: none;
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	width:500px;
+	height:300px;
+	background:#fff;
+	z-index:1000;
+	color: black;
+	border: 10px double black;
+	font-family: "Nanum Brush Script";
+	font-size: 30px;
+}
+
+#modal-wrap hr {
+	border: 1px solid black;
+}
+
+#inner {
+	text-align: center;
+}
+
+#reg {
+    display: inline-block;
+    margin: 0 0.1rem;
+    margin-top: 40px;
+    
+    border: 1px solid #000;
+    font-family: "Nanum Brush Script";
+    background-color: transparent;
+    color: black;
+    border-radius: 5%;
+    font-size: 25px;
+    
+    width: 80px;
+    height: 40px;
+    cursor: pointer;
+    text-transform: capitalize;
+    
+    background-image: linear-gradient(0, #000, #000);
+    background-size: 0;
+    transition: .8s;
+    background-repeat: no-repeat;
+}
+
+#reg:hover {
+    background-size: 100%;
+    color: #fff;
+}
+
+#frame {
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	position: absolute;
+	box-sizing: border-box;
+	background: #000;
+	left: 466px;
+}
+
+#close {
+	width: 30px;
+	height: 25px;
+	position: relative;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	cursor: pointer;
+}
+
+#close::before, #close::after {
+	content: "";
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 1px;
+	background: #fff;
+	transition: .3s ease-in
+}
+
+#close::before {
+	top: 44%;
+	transform: rotate(45deg);
+}
+
+#close::after {
+	bottom: 51%;
+	transform: rotate(-45deg);
+}
+
+#close:hover::before {
+	top: 0;
+	transform: rotate(0deg);
+}
+
+#close:hover::after {
+	bottom: 0;
+	transform: rotate(0deg);
+}
+
+#close div {
+	position: absolute;
+	top: 6px;
+	left: 2px;
+	font-size: 13px;
+	color: white;
+	text-align: center;
+	opacity: 0;
+	transition: .3s;
+	color: white;
+	text-decoration: none;
+}
+
+#close:hover div {	
+	opacity: 1;
+}
+
+#exc1 {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+
+    margin-top: 20px;
+}
+
+#exc_text1 {
+    position: absolute;
+    display: none;
+    border-radius: 5px;
+    border: 1px solid white;
+    background-color: #000;
+    color: #fff;
+    margin-top: 45px;
+    width: 150px;
+    padding: 5px 10px;
+    
+    font-size: 21px;
+}
+
+#exc1:hover + #exc_text1 {
+    display: inline-block;
+}
+
+#exc5 {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+
+    margin-top: 20px;
+}
+
+#exc_text5 {
+    position: absolute;
+    display: none;
+    border-radius: 5px;
+    border: 1px solid white;
+    background-color: #000;
+    color: #fff;
+    margin-top: 45px;
+    width: 150px;
+    padding: 5px 10px;
+    
+    font-size: 21px;
+}
+
+#exc5:hover + #exc_text5 {
+    display: inline-block;
+}
+
+#exc6 {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+
+    margin-top: 20px;
+}
+
+#exc_text6 {
+    position: absolute;
+    display: none;
+    border-radius: 5px;
+    border: 1px solid white;
+    background-color: #000;
+    color: #fff;
+    margin-top: 45px;
+    width: 150px;
+    padding: 5px 10px;
+    
+    font-size: 21px;
+}
+
+#exc6:hover + #exc_text6 {
+    display: inline-block;
+}
+
+#exc7 {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+
+    margin-top: 20px;
+}
+
+#exc_text7 {
+    position: absolute;
+    display: none;
+    border-radius: 5px;
+    border: 1px solid white;
+    background-color: #000;
+    color: #fff;
+    margin-top: 45px;
+    width: 150px;
+    padding: 5px 10px;
+    
+    font-size: 21px;
+}
+
+#exc7:hover + #exc_text7 {
+    display: inline-block;
+}
+
+#exc8 {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+
+    margin-top: 20px;
+}
+
+#exc_text8 {
+    position: absolute;
+    display: none;
+    border-radius: 5px;
+    border: 1px solid white;
+    background-color: #000;
+    color: #fff;
+    margin-top: 45px;
+    width: 150px;
+    padding: 5px 10px;
+    
+    font-size: 21px;
+}
+
+#exc8:hover + #exc_text8 {
+    display: inline-block;
+}
+
+#exc9 {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+
+    margin-top: 20px;
+}
+
+#exc_text9 {
+    position: absolute;
+    display: none;
+    border-radius: 5px;
+    border: 1px solid white;
+    background-color: #000;
+    color: #fff;
+    margin-top: 45px;
+    width: 150px;
+    padding: 5px 10px;
+    
+    font-size: 21px;
+}
+
+#exc9:hover + #exc_text9 {
+    display: inline-block;
+}

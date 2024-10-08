@@ -1,0 +1,155 @@
+@charset "UTF-8";
+
+body{
+    background-color: black;
+}
+
+.img_ani {
+    animation: fadeIn;
+    animation-duration: 1.5s;
+}
+
+.img_ani_out {
+    animation: fadeOut;
+    animation-duration: 1s;
+}
+
+#container{
+    width: 600px;
+    height: 700px;
+    margin: 0 auto;
+    text-align: center;
+    align-items: center;
+}
+
+.title{
+    display: inline-block;
+    margin: 0 0.1rem;
+
+    font-family: "Dancing Script";
+    color: rgb(255,255,255);
+    font-size: 5ch;
+}
+
+.title_ani {
+    animation: fadeInDown;
+    animation-duration: 1.5s;
+}
+
+.title_ani_out {
+    animation: fadeOutUp;
+    animation-duration: 1s;
+}
+
+.content{
+    align-content: center;
+}
+
+.menu{
+    font-family: "Nanum Brush Script";
+    text-decoration: none;
+    color: rgb(255,255,255);
+    font-size: 30px;
+    position: relative;
+    cursor: pointer;
+}
+
+.menu::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .4);
+    left: 0;
+    top: 0;
+    opacity: 0;
+    transition: .5s;
+}
+
+.menu .content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 2;
+    background: none;
+}
+
+.menu .content::after, .menu .content::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 0%;
+    height: 0%;
+    border-color: white;
+    border-width: 1px;
+    transition: .5s;
+}
+
+.menu .content::after {
+    height: 100%;
+    border-style: solid none;
+}
+
+.menu .content::before {
+    width: 100%;
+    border-style: none solid;
+}
+
+.menu:hover:after {
+    opacity: 1;
+}
+
+.menu:hover .content::after, .menu:hover .content::before {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+#menu{
+    display: inline-block;
+    width: 170px;
+    height: 200px;
+    margin-top: 30px;
+    
+    /* border: 1px solid #fff; */
+    border-radius: 10%;
+}
+
+#in{
+    display: inline-block;
+    width: 150px;
+    height: 70px;
+    padding: 17px 0 0 0;
+
+}
+
+.in_ani {
+    animation: fadeInLeft;
+    animation-duration: 1s;
+}
+
+.in_ani_out {
+    animation: fadeOutLeft;
+    animation-duration: 1s;
+}
+
+#up{
+    display: inline-block;
+    width: 150px;
+    height: 70px;
+    padding: 17px 0 0 0;
+}
+
+.up_ani {
+    animation: fadeInLeft;
+    animation-duration: 1.3s;
+}
+
+.up_ani_out {
+    animation: fadeOutLeft;
+    animation-duration: 1s;
+}

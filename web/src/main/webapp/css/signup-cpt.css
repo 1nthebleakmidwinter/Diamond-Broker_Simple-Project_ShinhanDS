@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+body {
+    background-color: black;
+    text-align: center;
+    align-items: center;
+}
+
+#btn {
+    display: inline-block;
+    margin: 0 0.1rem;
+    margin-top: 40px;
+    
+    border: 1px solid #fff;
+    font-family: "Nanum Brush Script";
+    background-color: transparent;
+    color: white;
+    border-radius: 5%;
+    font-size: 25px;
+    
+    width: 120px;
+    height: 40px;
+    cursor: pointer;
+    text-transform: capitalize;
+    
+    background-image: linear-gradient(0, #fff, #fff);
+    background-size: 0;
+    transition: .8s;
+    background-repeat: no-repeat;
+}
+
+.btn_ani {
+    animation: fadeInLeft;
+    animation-duration: 1s;
+}
+
+.btn_ani_out {
+    animation: fadeOutLeft;
+    animation-duration: 1s;
+}
+
+#btn:hover {
+    background-size: 100%;
+    color: #000;
+}
+
+.title{
+    display: inline-block;
+    margin: 0 0.1rem;
+    
+    animation: fadeInDown;
+    animation-duration: 1s;
+    
+    font-family: "Dancing Script";
+    color: rgb(255,255,255);
+    font-size: 5ch;
+    
+    margin-top: 250px;
+}
+
+.title_ani_out {
+    animation: fadeOutUp;
+    animation-duration: 1s;
+}

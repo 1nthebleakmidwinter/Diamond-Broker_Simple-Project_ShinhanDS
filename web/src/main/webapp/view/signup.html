@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diamond Broker - Sign up</title>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css' integrity='sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw==' crossorigin='anonymous'/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Nanum+Brush+Script&family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/signup.css">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js' integrity='sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==' crossorigin='anonymous'></script>
+    <script>
+        var name_chk = false;
+        var pn_chk = false;
+        var email_chk = false;
+        var id_chk = false;
+        var pw_chk = false;
+
+        function init() {
+            var field = $("#field");
+            var title = $(".title");
+            var btn = $("#btn");
+            var inps = $(".inp");
+            var inp1 = $("#inp1");
+            var inp2 = $("#inp2");
+            var inp3 = $("#inp3");
+            var inp4 = $("#inp4");
+            var inp5 = $("#inp5");
+    
+            inp1.addClass("inp1_ani");
+            inp2.addClass("inp2_ani");
+            inp3.addClass("inp3_ani");
+            inp4.addClass("inp4_ani");
+            inp5.addClass("inp5_ani");
+            btn.addClass("btn_ani");
+    
+            btn.on("click", function(e) {
+                    e.preventDefault();
+                    if(name_chk&&pn_chk&&email_chk&&id_chk&&pw_chk) {
+                        $.ajax({
+                            url:"../ajax_jsp/signupchk.jsp",
+                            type:"get",
+                            data:{
+                                name:$("input[name='name']").val(),
+                                pn:$("input[name='pn']").val(),
+                                email:$("input[name='email']").val(),
+                                id:$("input[name='newId']").val(),
+                                pw:$("input[name='newPw']").val()
+                            },
+                            success:function(resp) {
+                                $("img[id*='exc']").remove();
+                                $("div[id*='exc']").remove();
+                                var flag = true;
+                                var result = resp.split("");
+                                console.log(result);
+                                if(result[4]==0) {
+                                    flag = false;
+                                    $("#inp2").append("<img id='exc2'>");
+                                    $("#exc2").attr("src", "../image/exclamation.png");
+                                    $("#inp2").append("<div id='exc_text2'>Your PN already exist.</div>");
+                                }
+                                if(result[5]==0) {
+                                    flag = false;
+                                    $("#inp3").append("<img id='exc3'>");
+                                    $("#exc3").attr("src", "../image/exclamation.png");
+                                    $("#inp3").append("<div id='exc_text3'>Your Email already exist.</div>");
+                                }
+                                if(result[6]==0) {
+                                    flag = false;
+                                    $("#inp4").append("<img id='exc4'>");
+                                    $("#exc4").attr("src", "../image/exclamation.png");
+                                    $("#inp4").append("<div id='exc_text4'>Your ID already exist.</div>");
+                                }
+                                if(flag) {
+                                    $("img[id*='exc']").remove();
+                                    $("div[id*='exc']").remove();
+                                    $.ajax({
+                                        url:"../ajax_jsp/meminsert.jsp",
+                                        type:"get",
+                                        data:{
+                                            name:$("input[name='name']").val(),
+                                            pn:$("input[name='pn']").val(),
+                                            email:$("input[name='email']").val(),
+                                            id:$("input[name='newId']").val(),
+                                            pw:$("input[name='newPw']").val()
+                                        },
+                                        success:function(resp) {
+                                            if(resp==1) {
+                                                fadeout();
+                                                setTimeout(function() {
+                                                    $("form").submit();
+                                                }, 900);
+                                            } else {
+                                                alert("Unexpected error, Please try again.");
+                                            }
+                                        }
+                                    })
+                                }
+                            }
+                        })
+                    }
+                });
+
+            inp1.has("input[id='name']").on("change", nameChk);
+            
+            function nameChk() {
+                const regex = /^[a-zA-Z]{5,30}$/;
+                name_chk = regex.test($("input[id='name']").val());
+                if(!name_chk) {
+                    if(!$("#inp1").has("img").length) {
+                        $("#inp1").append("<img id='exc'>");
+                        $("#exc").attr("src", "../image/exclamation.png");
+                        $("#inp1").append("<div id='exc_text'>Invalid name format.(Only English 5~30)</div>");
+                    }
+                } else {
+                    $("#exc").remove();
+                }
+            }
+
+            inp2.has("input[id='pn']").on("change", pnChk);
+            
+            function pnChk() {
+                const regex = /^\d{2,3}-\d{3,4}-\d{4}$/;
+                pn_chk = regex.test($("input[id='pn']").val());
+                if(!pn_chk) {
+                    if(!$("#inp2").has("img").length) {
+                        $("#inp2").append("<img id='exc2'>");
+                        $("#exc2").attr("src", "../image/exclamation.png");
+                        $("#inp2").append("<div id='exc_text2'>Invalid PN format.</div>");
+                    }
+                } else {
+                    $("#exc2").remove();
+                }
+            }
+
+            inp3.has("input[id='email']").on("change", emailChk);
+            
+            function emailChk() {
+                const regex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-z]+$/;
+                email_chk = regex.test($("input[id='email']").val());
+                if(!email_chk) {
+                    if(!$("#inp3").has("img").length) {
+                        $("#inp3").append("<img id='exc3'>");
+                        $("#exc3").attr("src", "../image/exclamation.png");
+                        $("#inp3").append("<div id='exc_text3'>Invalid email format.</div>");
+                    }
+                } else {
+                    $("#exc3").remove();
+                }
+            }
+
+            inp4.has("input[id='newId']").on("change", idChk);
+            
+            function idChk() {
+                const regex = /^[a-zA-Z0-9]{5,30}$/;
+                id_chk = regex.test($("input[id='newId']").val());
+                if(!id_chk) {
+                    if(!$("#inp4").has("img").length) {
+                        $("#inp4").append("<img id='exc4'>");
+                        $("#exc4").attr("src", "../image/exclamation.png");
+                        $("#inp4").append("<div id='exc_text4'>Invalid ID format.(English and Number 5~30)</div>");
+                    }
+                } else {
+                    $("#exc4").remove();
+                }
+            }
+
+            inp5.has("input[id='newPw']").on("change", pwChk);
+            
+            function pwChk() {
+                const regex = /^[a-zA-Z0-9]{5,30}$/;
+                pw_chk = regex.test($("input[id='newPw']").val());
+                if(!pw_chk) {
+                    if(!$("#inp5").has("img").length) {
+                        $("#inp5").append("<img id='exc5'>");
+                        $("#exc5").attr("src", "../image/exclamation.png");
+                        $("#inp5").append("<div id='exc_text5'>Invalid PW format.(English and Number 5~30)</div>");
+                    }
+                } else {
+                    $("#exc5").remove();
+                }
+            }
+            
+            function fadeout() {
+                field.addClass("field_ani_out");
+                title.addClass("title_ani_out");
+                inps.addClass("div_ani_out");
+                btn.addClass("div_ani_out");
+            }
+
+            window.onpageshow = function(event) {
+                if (event.persisted || (window.performance && window.performance.navigation.type == 2)) {
+                    $("body").empty();
+                    location.reload();
+                }
+            }
+        }
+        $(init);
+    </script>
+</head>
+<body>
+    <h1 class="title">Welcome.</h1><br>
+    <fieldset id="field" class="field">
+        <form action="signup-cpt.jsp" method="post">
+            <div id="inp1" class="inp">
+                <input name="name" id="name" required>
+                <label for="name"><span>Name</span></label>
+            </div>
+
+            <div id="inp2" class="inp">
+                <input name="pn" id="pn" required>
+                <label for="pn"><span>Phone Number</span></label>
+            </div>
+            
+            <div id="inp3" class="inp">
+                <input name="email" id="email" required>
+                <label for="email"><span>Email</span></label>
+            </div>
+            
+            <div id="inp4" class="inp">
+                <input name="newId" id="newId" required>
+                <label for="newId"><span>New ID</span></label>
+            </div>
+            
+            <div id="inp5" class="inp">
+                <input name="newPw" id="newPw" type="password" required>
+                <label for="newPw"><span>New PW</span></label>
+            </div>
+            <input id="btn" type="submit" value="Sign Up">
+        </form>
+    </fieldset>
+</body>
+</html>

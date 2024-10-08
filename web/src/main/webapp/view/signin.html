@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diamond Broker - Sign in</title>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css' integrity='sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw==' crossorigin='anonymous'/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Nanum+Brush+Script&family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/signin.css">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js' integrity='sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==' crossorigin='anonymous'></script>
+    <script>
+        function init() {
+            var field = $("#field");
+            var title = $(".title");
+            var inp1 = $("#inp1");
+            var inp2 = $("#inp2");
+            var btn = $("#btn");
+    
+            field.addClass("field_ani");
+            title.addClass("title_ani");
+            inp1.addClass("inp1_ani");
+            inp2.addClass("inp2_ani");
+            btn.addClass("btn_ani");
+            
+            btn.on("click", function(e) {
+                e.preventDefault();
+                $.ajax({
+                    url:"../ajax_jsp/signinchk.jsp",
+                    type:"get",
+                    data:{user_id:$("input[name='user_id']").val(), user_pw:$("input[name='user_pw']").val()},
+                    success:function(resp) {
+                        if(resp==1) {
+                            $("#exc").remove();
+                            fadeout();
+                            setTimeout(function() {
+                                $("form").submit();
+                            }, 900);
+                        } else {
+                            if(!$("#inp1").has("img").length) {
+                                $("#inp1").append("<img id='exc'>");
+                                $("#exc").attr("src", "../image/exclamation.png");
+                                $("#inp1").append("<div id='exc_text'>Invalid ID or PW.</div>");
+                            }
+                        }
+                    }
+                })
+            })
+    
+            function fadeout() {
+                field.addClass("field_ani_out");
+                title.addClass("title_ani_out");
+                inp1.addClass("inp1_ani_out");
+                inp2.addClass("inp2_ani_out");
+                btn.addClass("btn_ani_out");
+            }
+
+            window.onpageshow = function(event) {
+                if (event.persisted || (window.performance && window.performance.navigation.type == 2)) {
+                    $("body").empty();
+                    location.reload();
+                }
+            }
+        }
+        $(init);
+    </script>
+</head>
+<body>
+    <h1 class="title">Diamond Broker</h1><br>
+    <fieldset id="field" class="field">
+        <form action="signin.do" method="post">
+            <div id="inp1" class="inp">
+                <input name="user_id" id="user_id" required>
+                <label for="user_id"><span>ID</span></label>
+            </div>
+
+            <div id="inp2" class="inp">
+                <input name="user_pw" id="user_pw" type="password" required>
+                <label for="user_pw"><span>PW</span></label>
+            </div>
+            <input id="btn" type="submit" value="Sign In">
+        </form>
+    </fieldset>
+</body>
+</html>

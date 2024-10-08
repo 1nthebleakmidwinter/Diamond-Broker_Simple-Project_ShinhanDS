@@ -1,0 +1,225 @@
+@charset "UTF-8";
+
+body {
+    background-color: black;
+    text-align: center;
+    align-items: center;
+}
+
+label {
+    color: rgb(255, 255, 255);
+}
+
+label::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 0;
+    height: 100%;
+    border-bottom: 3px solid black;
+    transition: all .3s ease;
+}
+
+#field {
+    /* border-style: hidden; */
+    border-radius: 10%;
+    font-size: 3ch;
+    
+    font-family: "Nanum Brush Script";
+    
+    width: 260px;
+    height: 200px;
+    margin: 0 auto;
+    margin-top: 50px;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+
+    border-left-style: hidden;
+}
+
+#btn {
+    display: inline-block;
+    margin: 0 0.1rem;
+    margin-top: 30px;
+    
+    border: 1px solid #fff;
+    font-family: "Nanum Brush Script";
+    background-color: transparent;
+    color: white;
+    border-radius: 5%;
+    font-size: 25px;
+    
+    width: 80px;
+    height: 40px;
+    cursor: pointer;
+    text-transform: capitalize;
+    
+    background-image: linear-gradient(0, #fff, #fff);
+    background-size: 0;
+    transition: .8s;
+    background-repeat: no-repeat;
+}
+
+.btn_ani {
+    animation: fadeInLeft;
+    animation-duration: 1.6s;
+}
+
+.btn_ani_out {
+    animation: fadeOutLeft;
+    animation-duration: 1s;
+}
+
+#btn:hover {
+    background-size: 100%;
+    color: #000;
+}
+
+#inp1 {
+    display: inline-block;
+    margin: 0 0.1rem;
+}
+
+.inp1_ani {
+    animation: fadeInLeft;
+    animation-duration: 1s;
+}
+
+.inp1_ani_out {
+    animation: fadeOutLeft;
+    animation-duration: 1s;
+}
+
+#inp2 {
+    display: inline-block;
+    margin: 0 0.1rem;
+}
+
+.inp2_ani {
+    animation: fadeInLeft;
+    animation-duration: 1.3s;
+}
+
+.inp2_ani_out {
+    animation: fadeOutLeft;
+    animation-duration: 1s;
+}
+
+.field {
+    display: inline-block;
+    margin: 0 0.1rem;
+}
+
+.field_ani {
+    animation: fadeInRight;
+    animation-duration: .7s;
+}
+
+.field_ani_out {
+    animation: fadeOut;
+    animation-duration: 1s;
+}
+
+.title{
+    display: inline-block;
+    margin: 0 0.1rem;
+    
+    font-family: "Dancing Script";
+    color: rgb(255,255,255);
+    font-size: 5ch;
+    
+    margin-top: 250px;
+}
+
+.title_ani {
+    animation: fadeInDown;
+    animation-duration: 1s;
+}
+
+.title_ani_out {
+    animation: fadeOutUp;
+    animation-duration: 1s;
+}
+
+.inp {
+    position: relative;
+    width: 80%;
+    height: 50px;
+}
+
+.inp input {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border: 0 none;
+    color: #fff;
+    outline: none;
+
+    background-color: #000;
+    border-color: #fff;
+}
+
+.inp label {
+    position: absolute;
+    left: 0%;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    border-bottom: 1px solid #555;
+    text-align: left;
+    pointer-events: none;
+}
+
+.inp label::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 0;
+    height: 100%;
+    border-bottom: 3px solid #fff;
+    transition: all .3s ease;
+}
+
+.inp label span {
+    position: absolute;
+    left: 0;
+    bottom: 5px;
+    transition: all .3s ease;
+}
+
+.inp input:focus + label span, .inp input:valid + label span {
+    transform: translateX(-30px);
+    font-size: 20px;
+    color: #fff;
+}
+
+.inp input:focus + label::after, .inp input:valid + label::after {
+    width: 100%;
+    transform: translateX(0);
+}
+
+#exc {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+
+    margin-top: 20px;
+}
+
+#exc_text {
+    position: absolute;
+    display: none;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #000;
+    margin-top: 45px;
+    width: 150px;
+    padding: 5px 10px;
+}
+
+#exc:hover + #exc_text {
+    display: inline-block;
+}

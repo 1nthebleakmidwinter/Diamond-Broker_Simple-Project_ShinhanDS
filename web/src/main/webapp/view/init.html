@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diamond Broker</title>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css' integrity='sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw==' crossorigin='anonymous'/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Nanum+Brush+Script&family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/init.css">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js' integrity='sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==' crossorigin='anonymous'></script>
+    <script>
+        function init() {
+            var a_in = document.querySelector("#in");
+            var a_up = document.querySelector("#up");
+            var t = document.querySelector(".title");
+            var img = document.querySelector("img");
+    
+            a_in.classList.add("in_ani");
+            a_up.classList.add("up_ani");
+            t.classList.add("title_ani");
+            img.classList.add("img_ani");
+            
+            $("#in").on("click", function(e) {
+                e.preventDefault();
+                fadeout();
+                setTimeout(function() {
+                    window.location.assign($("#in").attr("href"));
+                }, 900);
+                
+            });
+            
+            $("#up").on("click", function(e) {
+                e.preventDefault();
+                fadeout();
+                setTimeout(function() {
+                    window.location.assign($("#up").attr("href"));
+                }, 900)
+            })
+            
+            function fadeout() {
+                img.classList.add("img_ani_out");
+                a_in.classList.add("in_ani_out");
+                a_up.classList.add("up_ani_out");
+                t.classList.add("title_ani_out");
+            }
+    
+            window.onpageshow = function(event) {
+                if (event.persisted || (window.performance && window.performance.navigation.type == 2)) {
+                    $("body").empty();
+                    location.reload();
+                }
+            }
+        }
+        $(init);
+    </script>
+</head>
+<body>
+    <div id="container">
+        <img src="../image/diamond.png"><br>
+        <h1 class="title">Diamond Broker</h1><br>
+        <div id="menu">
+            <a id="in" class="menu" href="signin.html"><div class="content">Sign In</div></a><br>
+            <a id="up" class="menu" href="signup.html"><div class="content">Sign Up</div></a>
+        </div>
+    </div>
+</body>
+</html>
