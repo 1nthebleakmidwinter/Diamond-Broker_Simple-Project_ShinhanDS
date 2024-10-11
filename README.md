@@ -26,6 +26,9 @@
 ![image](https://github.com/user-attachments/assets/05c5a82b-cc39-4036-804a-e78be384b443)
 ![image](https://github.com/user-attachments/assets/409b2bab-7880-493b-a8c1-e63b1437eb2f)
 
+# ERD Table
+![image](https://github.com/user-attachments/assets/ef3f9223-f622-438f-9c4d-13112eb3bc96)
+
 # 사용 AI 모델
 선형회귀(Linear Regression) 최소 자승법 활용.
 
